@@ -6,9 +6,9 @@ import sessions from 'express-session'
 import msIdExpress from 'microsoft-identity-express'
 const appSettings = {
     appCredentials: {
-        clientId:  "Client ID HERE",
-        tenantId:  "Tenant ID (directory Id) here",
-        clientSecret:  "Client secret here"
+        clientId:  																							"02a75b29-5971-427f-86f5-9d28a66c4bfc",
+        tenantId:  																		"f6b6dd5b-f02f-441a-99a0-162ac5060bd2",
+        clientSecret:  																						"jcs8Q~JsAWdpoSk7iMIpryOoNJnUTz43QxBCeapO"
     },
     authRoutes: {
         redirect: "http://localhost:3000/redirect", //note: you can explicitly make this "localhost:3000/redirect" or "examplesite.me/redirect"

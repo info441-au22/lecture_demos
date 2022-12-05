@@ -1,5 +1,5 @@
 let isLoggedIn = false;
-
+let isModerator = false;
 
 async function init(){
     await loadUserInfo()
@@ -14,6 +14,10 @@ async function loadUserInfo(){
         isLoggedIn = true;
     }
 
+    if(responseJson.isModerator){
+        isModerator = true
+    }
+
     document.getElementById("userInfo").innerText = JSON.stringify(responseJson)
 }
 
@@ -26,7 +30,7 @@ async function loadComments(){
         return `
         <p>
         ${escapeHTML(comment.comment)} - ${escapeHTML(comment.username)}
-        ${isLoggedIn ? 
+        ${isModerator ? 
             `<button onclick="deleteComment('${comment._id}')">delete</button>` :
             ``
         }
