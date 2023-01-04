@@ -1,18 +1,15 @@
 const fs = require('fs').promises
 
-const songLyrics =  async () => {
-try {
-    let files = await fs.readdir("song_lyrics"); //read directory
-    console.log(files);
+const songLyrics = async () => {
+    let files = await fs.readdir('song_lyrics')
+    console.log(files)
 
-    let fileData = await fs.readFile("song_lyrics/" + files[4]); // read a file
-    console.log(fileData);
+    // fs.readFile takes relative path
+    let selectedFile = await fs.readFile('song_lyrics/' + files[0])
+    console.log(selectedFile)
 
-    let fileString = fileData.toString(); // turn fileData into a readable version
-    console.log(fileString);
-} catch(e) {
-    console.log(e);
+    let actualLyrics = selectedFile.toString()
+    console.log(actualLyrics)
 }
-};
 
 songLyrics();
