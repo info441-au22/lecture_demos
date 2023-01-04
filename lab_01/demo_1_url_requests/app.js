@@ -1,17 +1,26 @@
-const express = require('express');
-const app = express();
 
-//req.url: shows everything
-//req.path: shows path no query
-//req.query: shows all query parameter
-//req.query.<keyword>: shows keyword
+// so this demo is going to demo url requests
+
+const express = require('express')
+const app = express()
+
 
 app.get('*', (req, res) => {
-    console.log(req.url);
-    res.send('you request the url: ' + req.url);
+
+    res.send('You requested this url: ' + req.url + '</br>' +
+    'You requested this query parameter: ' + req.query.name + '</br>' +
+    'You requested this req.path: ' + req.path + '</br>'
+    )
+
 })
+
+/**
+ * To summarize:
+ *   req.url returns everything after the / in a given request (path + query parameter)
+ *   req.query.[parameter name] returns the value associated with the matching [parameter name]
+ *   req.path returns the path
+ */
 
 app.listen(3000, () => {
-    console.log('example running on port 3000')
+    console.log('example app running on port 3000')
 })
-
